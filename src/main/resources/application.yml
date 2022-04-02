@@ -1,0 +1,12 @@
+queues:
+  repaireQueue:
+    services: phoneRepaire
+    servicers: 2
+    tts: 15
+  paymentQueue:
+    services:
+      - phonePayments
+      - communalPayments
+    servicers: 5
+    tts: 1
+
