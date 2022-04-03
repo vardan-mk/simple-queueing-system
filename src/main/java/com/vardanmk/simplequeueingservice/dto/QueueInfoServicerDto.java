@@ -2,15 +2,17 @@ package com.vardanmk.simplequeueingservice.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Data
+import java.util.Map;
+
+@Getter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class ServiceDto {
-    private String serviceId;
-    private int count;
-    private int waitTime;
+public class QueueInfoServicerDto {
+
+    private String queueName;
+    private Map<String, Integer> serviceInfo;
 }
