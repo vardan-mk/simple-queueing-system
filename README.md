@@ -53,4 +53,4 @@ or some users try to join same service queue multiple times.
 Also a case when the count of users in the queue are less than count of servicers,
 and which one of servicers going to serve those users and which one not.
 
-## Missing parts in the code are: exception handling, logging and unittests.
+## Missing parts in the code are: partially exception handling and unittests.

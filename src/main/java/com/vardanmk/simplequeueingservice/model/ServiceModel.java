@@ -1,4 +1,4 @@
-package com.vardanmk.simplequeueingservice.dto;
+package com.vardanmk.simplequeueingservice.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ServiceDto {
+public class ServiceModel {
     private String serviceId;
     private int waitingUsers;
     private int waitTime;

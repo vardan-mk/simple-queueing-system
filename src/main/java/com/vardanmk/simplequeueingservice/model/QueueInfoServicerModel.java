@@ -1,4 +1,4 @@
-package com.vardanmk.simplequeueingservice.dto;
+package com.vardanmk.simplequeueingservice.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,7 +11,7 @@ import java.util.Map;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class QueueInfoServicerDto {
+public class QueueInfoServicerModel {
     private String queueName;
     private Map<String, Integer> serviceInfo;
 }

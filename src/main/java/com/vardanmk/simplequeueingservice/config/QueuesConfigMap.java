@@ -37,30 +37,25 @@ public class QueuesConfigMap {
     @Bean
     public Map<String, InitQueue> getQueues() {
 
-        Map<String, Queue<Integer>> repairServiceMap = new HashMap<>();
-        Arrays.stream(serviceQueuesRepair).forEach(id -> {
-            Queue<Integer> serviceQueue = new LinkedList<>();
-            repairServiceMap.put(id, serviceQueue);
-        });
+        InitQueue repairQueue = createInitQueue(serviceQueuesRepair, servicersRepair, ttsRepair);
 
-        InitQueue repairQueue = InitQueue.builder()
-                .queueServices(repairServiceMap)
-                .servicers(servicersRepair)
-                .tts(ttsRepair)
-                .build();
-
-        Map<String, Queue<Integer>> paymentServiceMap = new HashMap<>();
-        Arrays.stream(serviceQueuesPayment).forEach(id -> {
-            Queue<Integer> serviceQueue = new LinkedList<>();
-            paymentServiceMap.put(id, serviceQueue);
-        });
-
-        InitQueue paymentQueue = InitQueue.builder()
-                .queueServices(paymentServiceMap)
-                .servicers(servicersPayment)
-                .tts(ttsPayment)
-                .build();
+        InitQueue paymentQueue = createInitQueue(serviceQueuesPayment, servicersPayment, ttsPayment);
 
         return Map.of(repairQueueName, repairQueue, paymentQueueName, paymentQueue);
+    }
+
+    private InitQueue createInitQueue(String[] serviceList, int servicersCount, int tts) {
+
+        Map<String, Queue<Integer>> serviceMap = new HashMap<>();
+        Arrays.stream(serviceList).forEach(id -> {
+            Queue<Integer> serviceQueue = new LinkedList<>();
+            serviceMap.put(id, serviceQueue);
+        });
+
+        return InitQueue.builder()
+                .queueServices(serviceMap)
+                .servicersCount(servicersCount)
+                .tts(tts)
+                .build();
     }
 }

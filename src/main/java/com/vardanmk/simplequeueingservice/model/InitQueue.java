@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 public class InitQueue {
     private Map<String, Queue<Integer>> queueServices;
-    private int servicers;
+    private int servicersCount;
     private int tts;
 
     public Set<String> getServiceNames() {
